@@ -33,5 +33,5 @@ repos:
         name: Type checking with mypy
         language: system
         types: [ python ]
-        entry: poetry run mypy --install-types --non-interactive --ignore-missing-imports
+        entry: mypy --install-types --non-interactive --ignore-missing-imports
         verbose: true
