@@ -16,3 +16,4 @@ pytz==2023.3
 PyYAML==6.0
 sqlparse==0.4.4
 virtualenv==20.22.0
+psycopg2==2.9.6
