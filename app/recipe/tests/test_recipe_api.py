@@ -52,7 +52,7 @@ class PublicRecipeAPITests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-class PrivateRecipeAPITests(TestCase):
+class PrivateRecipeApiTests(TestCase):
     """Test authenticated API requests"""
 
     def setUp(self):
@@ -74,7 +74,7 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_recipe_list_limited_to_user(self):
         """Test list of recipes is limited to authenticated user"""
-        other_user = create_user(email="other@example.com", password="password123")
+        other_user = create_user(email="other@example.com", password="test123")
         create_recipe(user=other_user)
         create_recipe(user=self.user)
 
@@ -153,7 +153,7 @@ class PrivateRecipeAPITests(TestCase):
             self.assertEqual(getattr(recipe, k), v)
         self.assertEqual(recipe.user, self.user)
 
-    def test_update_returns_error(self):
+    def test_update_user_returns_error(self):
         """Test changing the recipe user results in an error"""
         new_user = create_user(email="user2@example.com", password="test123")
         recipe = create_recipe(user=self.user)

@@ -40,10 +40,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         return recipe
 
 
-class RecipeDetailSerializer(serializers.ModelSerializer):
+class RecipeDetailSerializer(RecipeSerializer):
     """Serializer for recipe detail view"""
 
-    class Meta:
-        model = Recipe
-        fields = ("id", "title", "time_minutes", "price", "link", "description", "tags")
-        read_only_fields = ("id",)
+    class Meta(RecipeSerializer.Meta):
+        fields = RecipeSerializer.Meta.fields + ("description",)  # type: ignore
