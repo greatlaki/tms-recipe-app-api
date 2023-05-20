@@ -18,3 +18,4 @@ sqlparse==0.4.4
 virtualenv==20.22.0
 psycopg2==2.9.6
 drf-spectacular>=0.26.2
+Pillow==9.5.0
