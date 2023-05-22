@@ -11,6 +11,7 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 
 def recipe_image_file_path(instance, filename):
@@ -75,6 +76,13 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RecipeProxy(Recipe):
+    history = HistoricalRecords()
+
+    class Meta:
+        proxy = True
 
 
 class Tag(models.Model):
